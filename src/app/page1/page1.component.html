@@ -1,0 +1,44 @@
+<form [formGroup]="myForm" (ngSubmit)="save()">
+    <div class="container">
+        <div class="col-3">
+
+
+            <label>firstname</label>
+            <input class="form-control" type="text" name="firstname" formControlName="firstname">
+
+            <div *ngIf="firstname!.touched && firstname!.invalid">
+
+                <small class="text-danger" *ngIf="firstname?.errors?.['required']">Firstname is required</small>
+                <small class="text-danger" *ngIf="firstname!.errors?.['minlength']">il faut min 3 car</small>
+            </div>
+
+
+            <label>lastname</label>
+            <input class="form-control" type="text" name="lastname" formControlName="lastname">
+            <div *ngIf="lastname!.touched && lastname!.invalid">
+
+                <small class="text-danger" *ngIf="lastname?.errors?.['required']">lastname is required</small>
+                <small class="text-danger" *ngIf="lastname!.errors?.['minlength']">il faut min 3 car</small>
+            </div>
+
+            <label>phone</label>
+            <input class="form-control" type="number" name="phone" formControlName="phone">
+
+            <div *ngIf="phone!.touched && phone!.invalid">
+
+                <small class="text-danger" *ngIf="phone?.errors?.['required']">phone is required</small>
+                <small class="text-danger" *ngIf="phone!.errors?.['pattern']">invalid phone</small>
+
+            </div>
+
+            <label>Email</label>
+            <input class="form-control" type="email" name="email" formControlName="email">
+            <div *ngIf="email!.touched && email!.invalid">
+
+                <small class="text-danger" *ngIf="email?.errors?.['required']">email is required</small>
+                <small class="text-danger" *ngIf="email!.errors?.['email']">invalid email</small>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger">register</button>
+    </div>
+</form>
